@@ -1,0 +1,29 @@
+{
+  "$schema_version": 1,
+  "name": "srs-ag11-nfr-spec",
+  "version": "1.0.0",
+  "node_id": "AG-11",
+  "kind": "agent",
+  "summary": "Agent Node AG-11 (Bước 17 SOP viết SRS): đặc tả yêu cầu phi chức năng và ràng buộc theo 6 nhóm với chỉ số đo, phương pháp kiểm chứng, nguồn và trạng thái; không tự đặt con số cam kết, gắn CẦN XÁC NHẬN khi thiếu nguồn.",
+  "repository": "https://github.com/HaNguyen1409/srs-ag11-nfr-spec",
+  "license": "MIT",
+  "interface": {
+    "contract": "SKILL.md — đầu vào/đầu ra là tài liệu Markdown/JSON mô tả trong skill; không gọi trực tiếp skill khác",
+    "output_artifact": null,
+    "sop_steps": [
+      {
+        "step": "19",
+        "title": "Đặc tả phi chức năng & ràng buộc (NFR chạm UI nhận diện sớm, chốt số tại đây)",
+        "type": "Agent",
+        "receives_from": "Baseline NFR/CON, B1, B9",
+        "sends_to": "B20"
+      }
+    ]
+  },
+  "upstream": {
+    "srs-ag06-business-model": "^1.4.2"
+  },
+  "downstream": [],
+  "orchestrates": {},
+  "runtime": null
+}
