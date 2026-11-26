@@ -21,7 +21,7 @@
     ]
   },
   "upstream": {
-    "srs-ag06-business-model": "^1.4.2"
+    "srs-ag06-business-model": "^1.5.0"
   },
   "downstream": [],
   "orchestrates": {},

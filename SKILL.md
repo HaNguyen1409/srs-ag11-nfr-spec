@@ -189,22 +189,32 @@ Tài liệu B19 sở hữu: ràng buộc CON-TMP, yêu cầu phi chức năng NF
 # YÊU CẦU PHI CHỨC NĂNG & RÀNG BUỘC (B19)
 | Mục | Nội dung |   (mã tài liệu, phiên bản, bước SOP, đầu vào, sở hữu nội dung, phân loại)
 ### Lịch sử phiên bản | Phiên bản | Ngày | Nội dung |
-## 0. Tóm tắt | Chỉ số | Giá trị |   (số CON-TMP; số NFR-TMP theo trạng thái; số trade-off; trạng thái Gate — độ phủ REQ loại NFR, CON ở RTM 01_TongHop)
+## 0. Tóm tắt | Chỉ số | Giá trị |   (số CON-TMP; số NFR-TMP theo trạng thái; số xung đột; trạng thái Gate — độ phủ REQ loại NFR, CON ở RTM 01_TongHop)
 ## 1. Phạm vi tài liệu
 | Cần biết | Xem ở |   (CHỈ bảng này: câu yêu cầu và trích dẫn của REQ → Pha A; nhóm ràng buộc → TL-01 §6.2; chỉ số thành công dự án → TL-01 §7; câu hỏi, phương án cho chỉ số chưa có → phiếu câu hỏi; REQ, UC của từng mục, vấn đề mở theo REQ, độ phủ → RTM D11_NFR, D04_REQ, 01_TongHop)
-## 2. Quy ước | Khái niệm | Quy ước |   (giá trị «Theo REQ-xxx»; ĐÃ_CÓ_NGUỒN / CẦN_XÁC_NHẬN / CHỈ_ĐỀ_XUẤT; mã tạm; «Mã đã loại: …»)
+## 2. Quy ước | Khái niệm | Quy ước |   (giá trị «Theo REQ-xxx»; ba trạng thái in nhãn thường «Đã có nguồn» / «Cần xác nhận» / «Chỉ đề xuất» — mã `ĐÃ_CÓ_NGUỒN`… chỉ ở JSON; mã tạm; «Mã đã loại: …»)
 ## 3. Ràng buộc | CON | Hệ quả cho thiết kế | Kiểm chứng | Tiếp nhận ở |
 ## 4. Yêu cầu phi chức năng
 ### 4.n {Nhóm}
 | NFR | Yêu cầu | Chỉ số (đơn vị, điều kiện) | Giá trị mục tiêu | Kiểm chứng | Trạng thái |
 (giá trị đã có trong REQ ghi «Theo REQ-xxx»; giá trị null hiển thị «[CẦN XÁC NHẬN] (GAP-xx)»)
-## 5. Xung đột và trade-off | Mã | Hai phía | Tác động | Người quyết / vấn đề mở |
+## 5. Xung đột giữa các yêu cầu | Mã | Hai phía | Tác động | Người quyết / vấn đề mở |
 ## 6. Kiểm tra | Kiểm tra | Kết quả |   (giá trị không nguồn gắn [CẦN XÁC NHẬN]; NFR có cách kiểm chứng — độ phủ REQ ở RTM)
 ```
 
 **Phương án C — tài liệu giữ nội dung, RTM giữ mã, nhãn, phân loại và liên kết (20/11/2026).** Sheet D của RTM TL-04 chỉ có mã, nhãn (tên hoặc câu phát biểu), phân loại dùng để tính và các liên kết; định nghĩa, mô tả, thuộc tính chỉ ở tài liệu này. Bảng của tài liệu không có cột liên kết hay phân loại đã ở RTM, không có dòng độ phủ hay mức sẵn sàng; mã + tên được lặp làm nhãn tham chiếu. Liên kết vẫn khai báo ở JSON đầu ra để Code Node đổ vào RTM (H29). B-CHECK báo lỗi khi vi phạm. Ở B19: `req_ids`, `applies_to` vẫn khai ở JSON (RTM D11_NFR đổ từ đó), tài liệu không in cột REQ, Áp dụng, Vấn đề mở theo REQ.
 
 Không đưa vào B19: câu yêu cầu chép từ REQ, mục «Câu hỏi cho khách hàng» (→ `new_gaps` → GAP Pha A), chỉ số thành công của dự án (TL-01 §7).
+
+### Quy tắc viết cho người đọc (TL-02 hướng dẫn §7)
+
+Phần Markdown được nhúng nguyên văn thành một chương của SRS, nên viết đúng ngay ở đây; SRS không sửa lại. Quy tắc áp dụng cho phần thân (bảng thông tin đầu tài liệu và lịch sử phiên bản bị bỏ khi nhúng). Đủ tám quy tắc V1–V8 và danh sách cụm cần tìm trước khi xuất: `07-Chuan-tai-lieu/templates/TL-02_huong-dan-lap-rap-SRS.md` §7. Năm điểm hay sai:
+
+- **Người đọc:** 11 nhóm, từ khách hàng, chủ nghiệp vụ tới lập trình viên, kiểm thử, người dùng cuối (danh sách ở mẫu TL-02 §1.2). Viết tiếng Việt thông dụng («xung đột giữa các yêu cầu», không «trade-off»); mỗi NFR có chỉ số, giá trị, cách kiểm chứng đo được.
+- **Câu dẫn** nói bảng hoặc mục dưới là gì và đọc thế nào, không nói quy trình nội bộ của bên lập: không «nơi duy nhất», «không chép lại», «vòng 1», «brief», «baseline», «hội tụ», số bước Bxx, mã AG-xx. Ghi chú sở hữu, MECE trong khung đầu ra ở trên là hướng dẫn cho Agent, không in ra. Trỏ sang tài liệu khác chỉ ghi mã tài liệu và số mục (vd «RTM <mã tài liệu> (sheet D11_NFR)»).
+- **Viết tắt và tiền tố mã:** mọi chữ viết tắt, tiền tố mã, ký hiệu trong tài liệu (NFR, CON, TMP…) phải có trong `glossary` / `id_legend` của project.json (SRS §1.4) hoặc ở §2 Quy ước. Dùng cái mới thì bổ sung vào `glossary` / `id_legend` cùng lúc.
+- **Trạng thái** in ra dạng nhãn thường trong bảng đọc («Đã có nguồn», «Cần xác nhận», «Chỉ đề xuất»), không in `ĐÃ_CÓ_NGUỒN`, `CẦN_XÁC_NHẬN`, `CHỈ_ĐỀ_XUẤT`; mã giữ trong JSON.
+- **Một ký hiệu một nghĩa, một khái niệm một tên:** không dùng ký hiệu trùng với tiền tố mã đã có (vd «(GĐ)» trùng GD-xx giả định); một chỉ số một tên ở mọi mục.
 
 ---
 

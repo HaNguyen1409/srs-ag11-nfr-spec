@@ -14,7 +14,7 @@ Skill là một dịch vụ độc lập, ghép lỏng: nhận đầu vào và t
 |---|---|---|---|---|
 | 19 | Đặc tả phi chức năng & ràng buộc (NFR chạm UI nhận diện sớm, chốt số tại đây) | Agent | Baseline NFR/CON, B1, B9 | B20 |
 
-**Skill phía trước (cấp đầu vào):** [`srs-ag06-business-model`](https://github.com/HaNguyen1409/srs-ag06-business-model) `^1.4.2`
+**Skill phía trước (cấp đầu vào):** [`srs-ag06-business-model`](https://github.com/HaNguyen1409/srs-ag06-business-model) `^1.5.0`
 
 ## Cài đặt
 
